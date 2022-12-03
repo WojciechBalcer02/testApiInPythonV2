@@ -20,3 +20,10 @@ def read_cars(request):
     for c in cars:
         response.append({"marka":c.marka, "model":c.model, "rok":c.rok})
     return JsonResponse(response, safe=False)
+
+@csrf_exempt
+def delete_car(request, id):
+   # car_id = request.POST.get("id")
+    car = Car.objects.get(id=id)
+    car.delete()
+    return HttpResponse("usunięto")

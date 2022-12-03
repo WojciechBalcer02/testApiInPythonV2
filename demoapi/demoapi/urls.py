@@ -21,5 +21,7 @@ from auta import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_car/', views.add_car),
+    path('delete_car/', views.delete_car),
+path('delete_car/<int:id>', views.delete_car),
     path('', views.read_cars),
 ]
